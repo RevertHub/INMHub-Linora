@@ -1,0 +1,132 @@
+local repo = 'https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/'
+
+local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
+
+local Window = Library:CreateWindow({
+
+    Title = 'INMHub | South London 2',
+    Center = false, 
+    AutoShow = true,
+})
+
+-- You do not have to set your tabs & groups up this way, just a prefrence.
+local Tabs = {
+    -- Creates a new tab titled Main
+    Main = Window:AddTab('Main'), 
+    Combat = Window:AddTab('Combat'), 
+    Fun = Window:AddTab('Fun'),
+    MenuGroup = Window:AddTab('UI Settings'), 
+}
+
+
+------------------------------------------------------------------------------------------------
+
+
+-- // Main GroupBox
+local LeftGroupBox = Tabs.Main:AddLeftGroupbox('Main')
+
+
+
+-- Infinite Stats
+LeftGroupBox:AddButton('Infinite Stats', function()
+    -- Source Here
+end)
+
+-- Infinite Skittles
+LeftGroupBox:AddButton('Infinite Skittles', function()
+    -- Source Here
+end)
+
+-- Infinite Karma
+LeftGroupBox:AddButton('Infinite Karma', function()
+    -- Source Here
+end)
+
+-- Anti-CameraBob
+LeftGroupBox:AddButton('Anti-CameraBob', function()
+    -- Source Here
+end)
+
+-- Fly Toggle
+LeftGroupBox:AddButton('Fly Toggle (LeftALT)', function()
+    -- Source Here
+end)
+
+
+
+------------------------------------------------------------------------------------------------
+
+
+
+-- // Combat GroupBox
+local LeftGroupBox = Tabs.Combat:AddLeftGroupbox('Combat')
+
+
+
+-- Aimbot
+LeftGroupBox:AddButton('Aimbot', function()
+    -- Source Here
+end)
+
+-- ESP
+LeftGroupBox:AddButton('ESP', function()
+    -- Source Here
+end)
+
+-- HeadBox Expander
+LeftGroupBox:AddButton('HeadBox Expander', function()
+    -- Source Here
+end)
+
+
+
+------------------------------------------------------------------------------------------------
+
+
+
+-- // Fun GroupBox
+local LeftGroupBox = Tabs.Fun:AddLeftGroupbox('Fun')
+
+
+-- Zombie Walk
+LeftGroupBox:AddButton('Zombie Walk', function()
+    -- Source Here
+end)
+
+-- Anti-Ban
+LeftGroupBox:AddButton('Anti-Ban', function()
+    -- Source Here
+end)
+
+--Rejoin
+LeftGroupBox:AddButton('Rejoin', function()
+    local TeleportService = game:GetService("TeleportService")
+    local Players = game:GetService("Players")
+    local LocalPlayer = Players.LocalPlayer
+    local Rejoin = coroutine.create(function()
+        local Success, ErrorMessage = pcall(function()
+            TeleportService:Teleport(game.PlaceId, LocalPlayer)
+        end)
+     
+        if ErrorMessage and not Success then
+            warn(ErrorMessage)
+        end
+    end)
+    coroutine.resume(Rejoin)
+        Flux:Notification("Rejoin")
+end)
+
+
+
+
+
+
+
+-- // Server Group
+local LeftGroupBox = Tabs.MenuGroup:AddLeftGroupbox('Menu')
+
+
+LeftGroupBox:AddButton('Unload', function() Library:Unload() end)
+
+
+
